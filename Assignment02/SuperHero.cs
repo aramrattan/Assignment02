@@ -38,7 +38,7 @@ namespace Assignment02
                     herosPowers[index] = superPowers[index];
                     powersChange[index] = "USED";
                 }
-                }
+                
                 
 
             }
