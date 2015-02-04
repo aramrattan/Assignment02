@@ -10,6 +10,9 @@ namespace Assignment02
     {
         static void Main(string[] args)
         {
+            SuperHero myHero = new SuperHero("The Avatar");
+            myHero.showPowers();
+
         }
     }
 }

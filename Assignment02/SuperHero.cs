@@ -16,7 +16,7 @@ namespace Assignment02
         //*****************Constructor Method*************************
         public SuperHero(string name): base (name)
         {
-            Hero sHero = new Hero("The Avatar");
+            Hero sHero = new Hero(name);
             this.name = name;
             generateRandomPowers();
         }
@@ -47,7 +47,7 @@ namespace Assignment02
         }
 
         //****************Public Methods******************************
-        public void show()
+        public void showPowers()
         {
             Console.WriteLine("***********************************************");
             Console.WriteLine("{0}'s powers are:", this.name);
