@@ -10,6 +10,7 @@ namespace Assignment02
     {
         //*****************Private Properties*************************
         private string[] superPowers = {"Super Speed", "Super Strength","Body Armour", "Flight", "Fire Generation","Weather Control"};
+        private Random rnd = new Random();
  
 
         //*****************Constructor Method*************************
@@ -20,6 +21,12 @@ namespace Assignment02
         }
 
         //*****************Private Methods****************************
+        private string[] generateRandomPowers()
+        {
+            string[] herosPowers = new string[3];
+
+
+        }
 
     }
 }
