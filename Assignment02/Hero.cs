@@ -14,8 +14,7 @@ namespace Assignment02
         private int health;
         private Random rnd = new Random();//made an instance so that it can just be called when needed instead of making new one each time
  
-        //Change
-        //*****************************************Public Properties***********************************************************
+       //*****************************************Public Properties***********************************************************
         public string name;
 
         //*****************************************Constructor Method**********************************************************

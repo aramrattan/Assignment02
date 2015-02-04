@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Assignment02
 {
-    class SuperHero
+    class SuperHero : Hero 
     {
+
     }
 }
