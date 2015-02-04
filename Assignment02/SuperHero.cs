@@ -24,7 +24,24 @@ namespace Assignment02
         //*****************Private Methods****************************
         private void generateRandomPowers()
         {
-           
+            string[] powersChange = superPowers;
+
+            for (int index = 0; index < herosPowers.Length; index++)
+            {
+                int num = rnd.Next(superPowers.Length);
+                if (powersChange[index] == "USED")
+                {
+                    num = rnd.Next(superPowers.Length);
+                }
+                else 
+                {
+                    herosPowers[index] = superPowers[index];
+                    powersChange[index] = "USED";
+                }
+                }
+                
+
+            }
 
              
         }
@@ -32,10 +49,13 @@ namespace Assignment02
         //****************Public Methods******************************
         public void show()
         {
-            Console.WriteLine("{0}'s powers are:");
-            Console.WriteLine("-{0}", herosPowers[0]);
-            Console.WriteLine("-{0}", herosPowers[1]);
-            Console.WriteLine("-{0}", herosPowers[2]);
+            Console.WriteLine("***********************************************");
+            Console.WriteLine("{0}'s powers are:", this.name);
+            for (int index = 0; index < herosPowers.Length; index++)
+            {
+                Console.WriteLine("     -{0}", herosPowers[index]);
+            }                
+            Console.WriteLine("***********************************************");
    
         }
 
