@@ -9,48 +9,57 @@ namespace Assignment02
     class SuperHero : Hero 
     {
         //*****************Private Properties*************************
-        private string[] superPowers = {"Super Speed", "Super Strength","Body Armour", "Flight", "Fire Generation","Weather Control"};
+        private string[] superPowers = {"Super Speed", "Super Strength","Body Armour", "Flight", "Fire Generation","Weather Control", "Water Control", "Laser Vision"};
         private Random rnd = new Random();
+       
         private string[] herosPowers = new string[3];
 
         //*****************Constructor Method*************************
         public SuperHero(string name): base (name)
         {
-            Hero sHero = new Hero(name);
-            this.name = name;
             generateRandomPowers();
         }
 
         //*****************Private Methods****************************
         private void generateRandomPowers()
         {
-            string[] powersChange = superPowers;
-
-            for (int index = 0; index < herosPowers.Length; index++)
+            int stringLength = superPowers.Length;
+            //temp array
+            string[] powersChange = new string[stringLength];
+            for (int copyIndex = 0; copyIndex < stringLength; copyIndex++)
             {
-                int num = rnd.Next(superPowers.Length);
-                if (powersChange[index] == "USED")
-                {
-                    num = rnd.Next(superPowers.Length);
-                }
-                else 
-                {
-                    herosPowers[index] = superPowers[index];
-                    powersChange[index] = "USED";
-                }
-                
-                
-
+                powersChange[copyIndex] = superPowers[copyIndex];
             }
+
+                for (int index = 0; index < herosPowers.Length; index++)
+                {
+                    int randomNum = this.rnd.Next(0, stringLength);
+                    // Console.WriteLine(randomNum);
+                    if (powersChange[randomNum] != "USED")
+                    {
+                       herosPowers[index] = powersChange[randomNum];
+                        powersChange[index] = "USED";
+                        randomNum = 0;
+                    }
+                    else
+                    {
+                         randomNum = this.rnd.Next(0, stringLength);
+                    }
+
+
+
+                }
 
              
         }
 
+   
         //****************Public Methods******************************
         public void showPowers()
         {
             Console.WriteLine("***********************************************");
-            Console.WriteLine("{0}'s powers are:", this.name);
+            Console.WriteLine("*****         {0}'s Powers        ******", this.name);
+            Console.WriteLine("***********************************************");
             for (int index = 0; index < herosPowers.Length; index++)
             {
                 Console.WriteLine("     -{0}", herosPowers[index]);
