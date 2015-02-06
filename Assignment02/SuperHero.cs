@@ -25,51 +25,33 @@ namespace Assignment02
         {
             int stringLength = superPowers.Length;
             int randomNum;
-            //temp array
-            // string[] powersChange = new string[stringLength];
+            
+            //array to keep track of random numbers used
             int[] check = new int[3];
-            //copying the superPowers array
-            /*for (int copyIndex = 0; copyIndex < stringLength; copyIndex++)
-            {
-                powersChange[copyIndex] = superPowers[copyIndex];
-            }*/
+         
             
                 for (int index = 0; index < herosPowers.Length; index++)
                 {
                     randomNum = this.rnd.Next(0, stringLength);
+                    //for loop to pick powers
                     for (int checkIndex =0; checkIndex<check.Length; checkIndex++)
                     {
+                        //using check array to make sure that there is no duplicates 
                         if (randomNum==check[checkIndex])
                         {
                             randomNum = this.rnd.Next(0, stringLength);
+                            //resetting the index so that this one is not skipped
                             checkIndex -= 1;
                         }
                         else
                         {
                             herosPowers[index] = superPowers[randomNum];
+                            //adding randomNum to check so that we can check for duplicates
                             check[checkIndex] = randomNum;
                             
                         }
                     }
-
-                    // Console.WriteLine(randomNum);
-                    /*if (powersChange[randomNum] == "USED")
-                    {
-                        randomNum = this.rnd.Next(0, stringLength);
-                        //herosPowers[index] = powersChange[randomNum];
-                        //powersChange[index] = "USED";
-                        //randomNum = 0;
-                    }
-                    else
-                    {
-                        herosPowers[index] = powersChange[randomNum];
-                        powersChange[index] = "USED";
-                        //randomNum = 0;
-                    }*/
-                
-                }
-
-             
+                }            
         }
 
    
