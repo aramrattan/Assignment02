@@ -24,30 +24,49 @@ namespace Assignment02
         private void generateRandomPowers()
         {
             int stringLength = superPowers.Length;
+            int randomNum;
             //temp array
-            string[] powersChange = new string[stringLength];
-            for (int copyIndex = 0; copyIndex < stringLength; copyIndex++)
+            // string[] powersChange = new string[stringLength];
+            int[] check = new int[3];
+            //copying the superPowers array
+            /*for (int copyIndex = 0; copyIndex < stringLength; copyIndex++)
             {
                 powersChange[copyIndex] = superPowers[copyIndex];
-            }
-
+            }*/
+            
                 for (int index = 0; index < herosPowers.Length; index++)
                 {
-                    int randomNum = this.rnd.Next(0, stringLength);
-                    // Console.WriteLine(randomNum);
-                    if (powersChange[randomNum] != "USED")
+                    randomNum = this.rnd.Next(0, stringLength);
+                    for (int checkIndex =0; checkIndex<check.Length; checkIndex++)
                     {
-                       herosPowers[index] = powersChange[randomNum];
-                        powersChange[index] = "USED";
-                        randomNum = 0;
+                        if (randomNum==check[checkIndex])
+                        {
+                            randomNum = this.rnd.Next(0, stringLength);
+                            checkIndex -= 1;
+                        }
+                        else
+                        {
+                            herosPowers[index] = superPowers[randomNum];
+                            check[checkIndex] = randomNum;
+                            
+                        }
+                    }
+
+                    // Console.WriteLine(randomNum);
+                    /*if (powersChange[randomNum] == "USED")
+                    {
+                        randomNum = this.rnd.Next(0, stringLength);
+                        //herosPowers[index] = powersChange[randomNum];
+                        //powersChange[index] = "USED";
+                        //randomNum = 0;
                     }
                     else
                     {
-                         randomNum = this.rnd.Next(0, stringLength);
-                    }
-
-
-
+                        herosPowers[index] = powersChange[randomNum];
+                        powersChange[index] = "USED";
+                        //randomNum = 0;
+                    }*/
+                
                 }
 
              
